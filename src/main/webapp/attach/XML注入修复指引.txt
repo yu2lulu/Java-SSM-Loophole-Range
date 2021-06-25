@@ -1,0 +1,71 @@
+XML注入修复代码：
+- SAXBuilder
+方式一：
+SAXBuilder builder = new SAXBuilder(true);
+Document doc = builder.build(InputSource);
+
+方式二：
+SAXBuilder builder = new SAXBuilder();
+builder.setFeature("http://apache.org/xml/features/disallow-doctype-decl", true);
+builder.setFeature("http://xml.org/sax/features/external-general-entities", false);
+builder.setFeature("http://xml.org/sax/features/external-parameter-entities", false);
+builder.setFeature("http://apache.org/xml/features/nonvalidating/load-external-dtd", false);
+Document doc = builder.build(InputSource);
+
+- SAXParserFactory
+SAXParserFactory spf = SAXParserFactory.newInstance();
+spf.setFeature("http://apache.org/xml/features/disallow-doctype-decl", true);
+spf.setFeature("http://xml.org/sax/features/external-general-entities", false);
+spf.setFeature("http://xml.org/sax/features/external-parameter-entities", false);
+spf.setFeature("http://apache.org/xml/features/nonvalidating/load-external-dtd", false);
+SAXParser parser = spf.newSAXParser();
+parser.parse(InputSource, (HandlerBase) null);
+
+- SAXReader
+SAXReader saxReader = new SAXReader();
+saxReader.setFeature("http://apache.org/xml/features/disallow-doctype-decl", true);
+saxReader.setFeature("http://xml.org/sax/features/external-general-entities", false);
+saxReader.setFeature("http://xml.org/sax/features/external-parameter-entities", false);
+saxReader.setFeature("http://apache.org/xml/features/nonvalidating/load-external-dtd", false);
+saxReader.read(InputSource);
+
+- SAXTransformerFactory
+SAXTransformerFactory sf = (SAXTransformerFactory) SAXTransformerFactory.newInstance();
+sf.setAttribute(XMLConstants.ACCESS_EXTERNAL_DTD, "");
+sf.setAttribute(XMLConstants.ACCESS_EXTERNAL_STYLESHEET, "");
+StreamSource source = new StreamSource(InputSource);
+sf.newTransformerHandler(source);
+
+- SchemaFactory
+SchemaFactory factory = SchemaFactory.newInstance("http://www.w3.org/2001/XMLSchema");
+factory.setProperty(XMLConstants.ACCESS_EXTERNAL_DTD, "");
+factory.setProperty(XMLConstants.ACCESS_EXTERNAL_SCHEMA, "");
+StreamSource source = new StreamSource(InputSource);
+Schema schema = factory.newSchema(source);
+
+- TransformerFactory
+TransformerFactory tf = TransformerFactory.newInstance();
+tf.setAttribute(XMLConstants.ACCESS_EXTERNAL_DTD, "");
+tf.setAttribute(XMLConstants.ACCESS_EXTERNAL_STYLESHEET, "");
+StreamSource source = new StreamSourceInputSource);
+tf.newTransformer().transform(source, new DOMResult());
+
+- ValidatorSample
+SchemaFactory factory = SchemaFactory.newInstance("http://www.w3.org/2001/XMLSchema");
+Schema schema = factory.newSchema();
+Validator validator = schema.newValidator();
+validator.setProperty(XMLConstants.ACCESS_EXTERNAL_DTD, "");
+validator.setProperty(XMLConstants.ACCESS_EXTERNAL_SCHEMA, "");
+StreamSource source = new StreamSource(InputSource);
+validator.validate(source);
+
+- XMLReader
+XMLReader reader = XMLReaderFactory.createXMLReader();
+reader.setFeature("http://apache.org/xml/features/disallow-doctype-decl", true);
+reader.setFeature("http://apache.org/xml/features/nonvalidating/load-external-dtd", false);
+reader.setFeature("http://xml.org/sax/features/external-general-entities", false);
+reader.setFeature("http://xml.org/sax/features/external-parameter-entities", false);
+reader.parse(new InputSource(InputSource));
+
+- Unmarshaller
+默认就能防御XXE注入

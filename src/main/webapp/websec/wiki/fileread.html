@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>一、漏洞环境信息 | Java漏洞测试靶场</title>
+    <meta name="generator" content="VuePress 1.5.3">
+    <link rel="icon" href="/person/person.icon">
+    <meta name="description" content="风起于青萍之末,浪成于微澜之间">
+    <link rel="preload" href="/assets/css/0.styles.c340c951.css" as="style"><link rel="preload" href="/assets/js/app.60959886.js" as="script"><link rel="preload" href="/assets/js/2.ceaaedf1.js" as="script"><link rel="preload" href="/assets/js/11.605c66c8.js" as="script"><link rel="prefetch" href="/assets/js/10.65b7f466.js"><link rel="prefetch" href="/assets/js/12.c7a50fb4.js"><link rel="prefetch" href="/assets/js/13.218d440b.js"><link rel="prefetch" href="/assets/js/14.d0d5ac27.js"><link rel="prefetch" href="/assets/js/15.bf61ee57.js"><link rel="prefetch" href="/assets/js/16.b25cb04e.js"><link rel="prefetch" href="/assets/js/3.bd51e6a6.js"><link rel="prefetch" href="/assets/js/4.b8768f7d.js"><link rel="prefetch" href="/assets/js/5.81b64e54.js"><link rel="prefetch" href="/assets/js/6.acf14a9e.js"><link rel="prefetch" href="/assets/js/7.ae823adb.js"><link rel="prefetch" href="/assets/js/8.47b29133.js"><link rel="prefetch" href="/assets/js/9.12bb1385.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.c340c951.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">Java漏洞测试靶场</span></a> <div class="links"><!----> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><a href="/websec/" class="nav-link router-link-active">
+  指引
+</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><a href="/websec/" class="nav-link router-link-active">
+  指引
+</a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>关于</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/websec/about/about.html" class="sidebar-link">说明</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>操作指引</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/websec/wiki/sqlinject.html" class="sidebar-link">SQL注入</a></li><li><a href="/websec/wiki/command.html" class="sidebar-link">命令执行</a></li><li><a href="/websec/wiki/fileread.html" aria-current="page" class="active sidebar-link">任意文件操作</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/websec/wiki/fileread.html#一、漏洞环境信息" class="sidebar-link">一、漏洞环境信息</a></li><li class="sidebar-sub-header"><a href="/websec/wiki/fileread.html#二、修复说明" class="sidebar-link">二、修复说明</a></li><li class="sidebar-sub-header"><a href="/websec/wiki/fileread.html#三、小结" class="sidebar-link">三、小结</a></li></ul></li><li><a href="/websec/wiki/fileupload.html" class="sidebar-link">文件上传</a></li><li><a href="/websec/wiki/ssrf.html" class="sidebar-link">SSRF</a></li><li><a href="/websec/wiki/xxe.html" class="sidebar-link">XXE</a></li><li><a href="/websec/wiki/xss.html" class="sidebar-link">XSS</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h2 id="一、漏洞环境信息"><a href="#一、漏洞环境信息" class="header-anchor">#</a> 一、漏洞环境信息</h2> <div class="language- extra-class"><pre class="language-text"><code>http://127.0.0.1:8080/fileread/read?file=1.txt
+</code></pre></div><h4 id="payload-http-127-0-0-1-8080-fileread-read-file-etc-pass"><a href="#payload-http-127-0-0-1-8080-fileread-read-file-etc-pass" class="header-anchor">#</a> <strong>payload:</strong> http://127.0.0.1:8080/fileread/read?file=../../../../../../../../etc/pass</h4> <p><img src="/img/fileread_payload.jpg" alt=""></p> <h2 id="二、修复说明"><a href="#二、修复说明" class="header-anchor">#</a> 二、修复说明</h2> <p><img src="/img/fileread_fenxi.jpg" alt=""></p> <h4 id="分析service层-fileread-string-filepath-添加修复代码前后分析"><a href="#分析service层-fileread-string-filepath-添加修复代码前后分析" class="header-anchor">#</a> <strong>分析service层 fileRead(String filePath) 添加修复代码前后分析</strong></h4> <p><strong>文件读取核心代码</strong></p> <div class="language- extra-class"><pre class="language-text"><code>    @Override
+    public String fileRead(String filePath) {
+        //1.获取文件路径
+        String staticPath = ContextLoader.getCurrentWebApplicationContext().getServletContext().getRealPath(&quot;/static&quot;);
+
+        //安全检验
+        Boolean fileInDir = fileReadCheck.isFileInDir(filePath, new File(staticPath));
+        if (fileInDir==false){
+            return null;
+        }
+
+        //2.得到需读取的文件完整路径
+        File filepath = new File(staticPath+File.separator+filePath);
+
+        //3.判断文件是否存在
+        if(filepath.isFile()==false){
+            return null; //表示不存在该文件,直接返回空
+        }
+
+        //3.读取文件内容并返回
+        String sb = null;
+        try {
+            sb = readAction(filepath); //读取文件代码
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return sb;
+    }
+
+    @Override
+    public String readAction(File file) throws IOException {
+        略.
+    }
+</code></pre></div><p><strong>文件读取校验代码</strong></p> <div class="language- extra-class"><pre class="language-text"><code>/*
+任意文件读取过滤函数
+* */
+public class fileReadCheck {
+    //判断字符串格式的文件名是否在目录中存在
+    static public Boolean isFileInDir(String fileName, File dir){
+        if(dir.isDirectory()==false){
+            return false;
+        }
+        //1。获取目录下的所有文件名
+        File[] files = dir.listFiles();
+
+        for (int i = 0; i &lt; files.length; i++) {
+            if (fileName.equals(files[i].getName())){ //如果需要读取的目录中存在和读取的文件名相同则返回true
+                return true;
+            }
+        }
+        return false; //没有找到目标相同的文件名,返回false
+    }
+}
+</code></pre></div><p><strong>修复说明</strong></p> <ul><li>获取需要读取文件的目录下的所有文件名;</li> <li>比对目录下所有文件名和需要读取的文件名</li> <li>若有相同的文件名,读取 否-&gt;拒绝读取操作</li></ul> <h2 id="三、小结"><a href="#三、小结" class="header-anchor">#</a> 三、小结</h2> <ul><li>成因：输入未校验</li> <li>位置：Service层</li> <li>修复：ESAPI编码/逻辑处理修复
+<ul><li>ESAPI分析：正常的文件名称由字母数字组成，另外上传的合法文件应由系统重新生成唯一的id去命名，因此可以粗暴的使用ESAPI的encodeForOS编码处理</li> <li>逻辑修复分析：filePath变量无论是否带有路径穿越的路径信息，对于系统来说都只是一个字符串,可以在需要读取的目录中去比对文件名是否一致来处理，从而限制了目录穿越带来的文件读取操作</li></ul></li></ul></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/websec/wiki/command.html" class="prev">
+        命令执行
+      </a></span> <span class="next"><a href="/websec/wiki/fileupload.html">
+        文件上传
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.60959886.js" defer></script><script src="/assets/js/2.ceaaedf1.js" defer></script><script src="/assets/js/11.605c66c8.js" defer></script>
+  </body>
+</html>

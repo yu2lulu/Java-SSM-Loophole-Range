@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>一、项目部署 | Java漏洞测试靶场</title>
+    <meta name="generator" content="VuePress 1.5.3">
+    <link rel="icon" href="/person/person.icon">
+    <meta name="description" content="风起于青萍之末,浪成于微澜之间">
+    <link rel="preload" href="/assets/css/0.styles.c340c951.css" as="style"><link rel="preload" href="/assets/js/app.60959886.js" as="script"><link rel="preload" href="/assets/js/2.ceaaedf1.js" as="script"><link rel="preload" href="/assets/js/9.12bb1385.js" as="script"><link rel="prefetch" href="/assets/js/10.65b7f466.js"><link rel="prefetch" href="/assets/js/11.605c66c8.js"><link rel="prefetch" href="/assets/js/12.c7a50fb4.js"><link rel="prefetch" href="/assets/js/13.218d440b.js"><link rel="prefetch" href="/assets/js/14.d0d5ac27.js"><link rel="prefetch" href="/assets/js/15.bf61ee57.js"><link rel="prefetch" href="/assets/js/16.b25cb04e.js"><link rel="prefetch" href="/assets/js/3.bd51e6a6.js"><link rel="prefetch" href="/assets/js/4.b8768f7d.js"><link rel="prefetch" href="/assets/js/5.81b64e54.js"><link rel="prefetch" href="/assets/js/6.acf14a9e.js"><link rel="prefetch" href="/assets/js/7.ae823adb.js"><link rel="prefetch" href="/assets/js/8.47b29133.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.c340c951.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">Java漏洞测试靶场</span></a> <div class="links"><!----> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><a href="/websec/" class="nav-link router-link-active">
+  指引
+</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><a href="/websec/" class="nav-link router-link-active">
+  指引
+</a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>关于</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/websec/about/about.html" aria-current="page" class="active sidebar-link">说明</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/websec/about/about.html#一、项目部署" class="sidebar-link">一、项目部署</a></li><li class="sidebar-sub-header"><a href="/websec/about/about.html#二、项目数据逻辑结构" class="sidebar-link">二、项目数据逻辑结构</a></li><li class="sidebar-sub-header"><a href="/websec/about/about.html#三、项目源代码说明" class="sidebar-link">三、项目源代码说明</a></li></ul></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>操作指引</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/websec/wiki/sqlinject.html" class="sidebar-link">SQL注入</a></li><li><a href="/websec/wiki/command.html" class="sidebar-link">命令执行</a></li><li><a href="/websec/wiki/fileread.html" class="sidebar-link">任意文件操作</a></li><li><a href="/websec/wiki/fileupload.html" class="sidebar-link">文件上传</a></li><li><a href="/websec/wiki/ssrf.html" class="sidebar-link">SSRF</a></li><li><a href="/websec/wiki/xxe.html" class="sidebar-link">XXE</a></li><li><a href="/websec/wiki/xss.html" class="sidebar-link">XSS</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h2 id="一、项目部署"><a href="#一、项目部署" class="header-anchor">#</a> 一、项目部署</h2> <p><strong>项目步骤步骤</strong></p> <blockquote><p>1.下载源代码</p> <p>2.安装mysql</p></blockquote> <ul><li>1.设置账号密码信息【user:root password:123456】</li> <li>2.导入mytest.sql(需先创建库mytest)
+<a href="/attach/mytest.sql">mytest.sql</a></li></ul> <h2 id="二、项目数据逻辑结构"><a href="#二、项目数据逻辑结构" class="header-anchor">#</a> 二、项目数据逻辑结构</h2> <p><strong>项目模型结构</strong> <img src="/img/mvc.jpg" alt=""></p> <h2 id="三、项目源代码说明"><a href="#三、项目源代码说明" class="header-anchor">#</a> 三、项目源代码说明</h2> <p><strong>项目目录结构</strong> <img src="/img/about.jpg" alt=""></p> <p><strong>目录结构说明</strong></p> <div class="language- extra-class"><pre class="language-text"><code>src/main/java
+    it.ssm
+        controller : Controller层
+        dao: Dao层，数据库操作
+        domain：javaBean,这里只要用作数据库表和对象的映射
+        interceptor : 拦截器，本项目暂未用到
+        service： service层，逻辑处理层
+        tools ： 工具类，这里主要用于参数校验
+    resources
+        mapper : mybatis的mapper文件(SQL配置语句)
+        applicationContext.xml :spring容器配置文件
+        db.properties ： 数据库账号信息
+        ESAPI.properties : esapi配置文件
+        esapi-java-logging.propertis: esapi配置文件
+        spring-mvc.xml： springmvc配置文件
+        sqlmapper.xml：mybaits的配置文件
+        validation.properties: esapi配置文件
+    webapp: jsp页面
+</code></pre></div></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><!----> <span class="next"><a href="/websec/wiki/sqlinject.html">
+        SQL注入
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.60959886.js" defer></script><script src="/assets/js/2.ceaaedf1.js" defer></script><script src="/assets/js/9.12bb1385.js" defer></script>
+  </body>
+</html>

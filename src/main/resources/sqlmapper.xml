@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+
+
+    <!--插件配置-->
+    <plugins>
+        <!--分页插件-->
+        <plugin interceptor="com.github.pagehelper.PageInterceptor">
+            <property name="helperDialect" value="mysql"/>
+        </plugin>
+    </plugins>
+
+    <!--加载mapper文件-->
+    <mappers>
+        <mapper resource="mapper/UserinfoMapper.xml"/>
+        <mapper resource="mapper/articleMapper.xml"/>
+        <mapper resource="mapper/article_xxe.xml"/>
+    </mappers>
+
+
+</configuration>

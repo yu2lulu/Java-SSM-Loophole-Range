@@ -1,0 +1,162 @@
+*{margin:0;padding:0;}
+ul,li,img,h1,td,tr,table{list-style:none;}
+body{background:#fff;}
+#footer {position: relative;margin-top: -70px; height: 70px;clear:both;} 
+.clearfix:after {content: ".";display: block;height: 0;clear: both;visibility: hidden;}
+.clearfix {display: inline-block;}
+* html .clearfix { height: 1%;}
+.clearfix {display: block;}
+body{font:13px/1.3 'Microsoft Yahei','宋体';color:#333;}
+#page,#footer_inner{margin:0 auto;width:960px;}
+h1#logo{background:url('../img/logo.jpg') no-repeat 50% 25px;overflow:hidden;height:93px;padding: 25px 0;}
+h1#logo a{display:block;text-indent:-9999px;height:93px;}
+#container{margin:0 auto;}
+#container h2 {font-weight:normal;line-height:28px;}
+#container p{padding:5px 0;}
+.credit{text-align:center;padding: 20px 0 100px;font-size:10px;}
+a:link, a:visited {text-decoration:none;outline:none;text-decoration:underline;color:#284C93;}
+a:hover{text-decoration:underline;}
+#footer{background-color:#212121;width:100%;}
+#footer h2{font-size:18px;font-weight:normal;height:70px;line-height:70px;font-family:"Microsoft Yahei";color:#eee;}
+#footer_inner{position:relative;}
+#footer a.tzine,a.tzine:visited{color:#FCFCFC;font-size:12px;line-height:70px;position:absolute;top:0;right:0;width:90px;}
+.demotips{margin:0 auto;text-align:center;font-size:25px;}
+.demotips a{margin:0 10px;}
+#zhuanti_top{width:100%;height:65px; position:fixed; top:0px; left:0px; z-index:999; text-align:center;background:url(../images/top_bg1.png) #fff repeat-x; margin:0 auto;}
+#zhuanti_center{width:1000px;margin:5px auto 0px;font-size:16px;color:#000;height:55px;line-height:12px;clear:both;}
+#zhuanti_center a.mLink{color:#828282;text-decoration:none;}
+#zhuanti_center a.mLink:hover{color:red;}
+#zhuanti_center #miniLogo{float:left;}
+#zhuanti_center #miniLogo img{border:0;height:55px;}
+#zhuanti_center #miniLink{float:right;padding:23px 8px 0 0;}
+.titl{margin-top:80px;text-align:center;}
+/* 右侧微信 */
+#jump{position:fixed;top:50%;right:5px;width:40px;z-index:400;_position:absolute;_top:expression(documentElement.scrollTop + "px");}
+#weixin{display:block;width:40px;height:40px;cursor:pointer;}
+#weixin{background:url(../images/st-weixin.png) repeat scroll 0% 0% transparent;}
+#EWM{ position:absolute; right:44px; top:-120px; display:none;}
+#EWM img{width:120px; height:120px;}
+/* 正文部分 */
+.bgxx,.bgxx1,.bgxx2,.bgxx3,.bgxx4,.bgxx5,.bgxx6,.bgxx7,.bgxx8{width:1000px;margin:0 auto;}
+.til{border-left:5px solid #2F5093;padding-left:10px;padding-bottom:5px;font-size:20px;font-weight:bold;margin-bottom:10px;width:220px;}
+.text1{padding:10px;}
+.wenz,.wenz1,.wenz2,.wenz3{font-size:17px;line-height:30px;text-indent:2em;}
+.wenz1,.wenz2,.wenz3{border-top:2px dashed #608f9f;margin-top:10px;padding-top:8px;text-indent:2em;}
+.bgxx1,.bgxx2,.bgxx3,.bgxx4,.bgxx5,.bgxx6,.bgxx7,.bgxx8{margin-top:30px;overflow:hidden;}
+.bgxx3{border-bottom: 2px dashed #2f5093;position:relative;}
+/* 滚动的图片 */
+.container .img-holder {
+  width:250px;
+  height:180px;
+  position:absolute;
+  background-color:#fff;  
+  box-shadow:0px 1px 6px 3px #ccc; 
+  visiblity:hidden;
+  opacity:0;
+  top:40px;
+  left:373px;
+  cursor:pointer;
+  z-index:99;
+}
+.container .img-holder img {margin-top:5px;}
+.container{
+  position:relative;
+  height:275px;
+  width:996px;
+  border:2px solid #ccc;
+  font-weight:bold;
+}
+.controller{
+  top:120px;
+  left:20px;
+  width:300px;
+  margin:0 auto;
+  position:relative;
+}
+
+.scrolller-container{
+  width:800px;
+  height:15px;
+  border:1px solid #ccc;
+  border-radius:10px;
+  position:relative;
+  left:100px;
+  cursor:pointer; 
+}
+.scrolller-container .scroller{
+   width:100px;
+   height:15px;
+   background-color:#ddd;
+   border-radius:10px;
+   position:absolute;
+   left:0px;
+}
+/* For reflection */
+.container .img-ref{
+  position:relative;
+  left:0;   
+  z-index:-1;
+}
+.container .img-ref img {
+  -webkit-transform: scaleY(-1);
+  -moz-transform: scaleY(-1);
+  -ms-transform: scaleY(-1);
+  -o-transform: scaleY(-1);
+  transform: scaleY(-1);
+}
+.container .img-ref:after {
+  content: "";
+  width: 100%;
+  height: 300px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-color: #000000;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(38%, rgba(255, 255, 255, 0)), color-stop(40% rgba(255, 255, 255, 0.67)), color-stop(65% #fff));
+  background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 38%, rgba(255, 255, 255, 0.67) 40%, #fff 65%);
+  background: -moz-linear-gradient(top, rgba(255, 255, 255, 0) 38%, rgba(255, 255, 255, 0.67) 40%, #fff 65%);
+  background: -ms-linear-gradient(top, rgba(255, 255, 255, 0) 38%, rgba(255, 255, 255, 0.67) 40%, #fff 65%);
+  background: -o-linear-gradient(top, rgba(255, 255, 255, 0) 38%, rgba(255, 255, 255, 0.67) 40%, #fff 65%);
+  background: linear-gradient(top, rgba(255, 255, 255, 0) 38%, rgba(0, 0, 0, 0.67) 40%, #fff 65%);
+} 
+/* 合作媒体 */
+.mt{padding-left:20px;}
+.mt li{float:left;margin-left:74px;}
+.bgxx3 .til{width:1000px;}
+.bgxx3 ul,.bgxx4 ul{overflow:hidden;padding:5px;border-top:2px dashed #2F5093;}
+.bgxx3 ul li,.bgxx4 ul li{width:484px;float:left;font-size:17px;line-height:30px;}
+.bgxx3 ul li span,.bgxx4 ul li span{font-weight:bold;font-size:16px;float:right;}
+.bgxx4 .til{width:1000px;}
+.bgxx4 {position:relative;}
+.zhus,.gz{background-color:#f0722e;
+    border-radius: 2em 1em 4em / 0.5em 3em;
+    color: rgb(255, 255, 255);
+    font-family: 微软雅黑;
+    position:absolute;
+    top:222px;
+    left:471px;
+    font-size: 18px;
+    max-width: 100%;
+    padding: 4px 10px;
+    word-wrap: break-word !important;}
+.gz{top:679px;left:472px;}
+.bgxx3 p,.bgxx4 p{text-indent:2em;}
+.bgxx5 .til{width:248px;}
+.bgxx5 p{font-size:16px;line-height:30px;padding:10px 15px;}
+.jl{padding-left:30px;}
+.picutre_many img{width:100px;margin-right:20px;}
+.leir {
+    border: 1px dashed #608f9f;
+    height: 100px;
+    margin: 15px auto 0;
+    padding: 10px 0;
+    width:998px;
+}
+.leir li {
+    float: left;
+    line-height: 28px;
+    font-size:16px;
+}
+.ys{font-weight:bold;color:blue;}
+.bgxx7 .til{width:248px;}
+.bgxx8 .til{width:248px;}

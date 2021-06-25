@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>一、漏洞环境信息 | Java漏洞测试靶场</title>
+    <meta name="generator" content="VuePress 1.5.3">
+    <link rel="icon" href="/person/person.icon">
+    <meta name="description" content="风起于青萍之末,浪成于微澜之间">
+    <link rel="preload" href="/assets/css/0.styles.c340c951.css" as="style"><link rel="preload" href="/assets/js/app.60959886.js" as="script"><link rel="preload" href="/assets/js/2.ceaaedf1.js" as="script"><link rel="preload" href="/assets/js/10.65b7f466.js" as="script"><link rel="prefetch" href="/assets/js/11.605c66c8.js"><link rel="prefetch" href="/assets/js/12.c7a50fb4.js"><link rel="prefetch" href="/assets/js/13.218d440b.js"><link rel="prefetch" href="/assets/js/14.d0d5ac27.js"><link rel="prefetch" href="/assets/js/15.bf61ee57.js"><link rel="prefetch" href="/assets/js/16.b25cb04e.js"><link rel="prefetch" href="/assets/js/3.bd51e6a6.js"><link rel="prefetch" href="/assets/js/4.b8768f7d.js"><link rel="prefetch" href="/assets/js/5.81b64e54.js"><link rel="prefetch" href="/assets/js/6.acf14a9e.js"><link rel="prefetch" href="/assets/js/7.ae823adb.js"><link rel="prefetch" href="/assets/js/8.47b29133.js"><link rel="prefetch" href="/assets/js/9.12bb1385.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.c340c951.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">Java漏洞测试靶场</span></a> <div class="links"><!----> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><a href="/websec/" class="nav-link router-link-active">
+  指引
+</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><a href="/websec/" class="nav-link router-link-active">
+  指引
+</a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>关于</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/websec/about/about.html" class="sidebar-link">说明</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>操作指引</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/websec/wiki/sqlinject.html" class="sidebar-link">SQL注入</a></li><li><a href="/websec/wiki/command.html" aria-current="page" class="active sidebar-link">命令执行</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/websec/wiki/command.html#一、漏洞环境信息" class="sidebar-link">一、漏洞环境信息</a></li><li class="sidebar-sub-header"><a href="/websec/wiki/command.html#二、修复说明" class="sidebar-link">二、修复说明</a></li><li class="sidebar-sub-header"><a href="/websec/wiki/command.html#三、小结" class="sidebar-link">三、小结</a></li></ul></li><li><a href="/websec/wiki/fileread.html" class="sidebar-link">任意文件操作</a></li><li><a href="/websec/wiki/fileupload.html" class="sidebar-link">文件上传</a></li><li><a href="/websec/wiki/ssrf.html" class="sidebar-link">SSRF</a></li><li><a href="/websec/wiki/xxe.html" class="sidebar-link">XXE</a></li><li><a href="/websec/wiki/xss.html" class="sidebar-link">XSS</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h2 id="一、漏洞环境信息"><a href="#一、漏洞环境信息" class="header-anchor">#</a> 一、漏洞环境信息</h2> <p><strong>场景：输入域名或者ip信息通过ping检测连通性</strong></p> <div class="language- extra-class"><pre class="language-text"><code>http://127.0.0.1:8080/cmd/runtime?ip=localhost
+http://127.0.0.1:8080/cmd/processbuild?ip=localhost
+</code></pre></div><p><img src="/img/runtime.jpg" alt=""> <strong>payload代码：</strong></p> <div class="language- extra-class"><pre class="language-text"><code>http://127.0.0.1:8080/cmd/runtime?ip=localhost;cat+/etc/passwd
+</code></pre></div><p><img src="/img/cmd_payload.jpg" alt=""></p> <h2 id="二、修复说明"><a href="#二、修复说明" class="header-anchor">#</a> 二、修复说明</h2> <p><img src="/img/runtime_fenxi.jpg" alt=""></p> <h4 id="分析service层goaction添加修复后的代码"><a href="#分析service层goaction添加修复后的代码" class="header-anchor">#</a> <strong>分析service层goAction添加修复后的代码</strong></h4> <p><strong>goAction</strong></p> <div class="language- extra-class"><pre class="language-text"><code>@Service
+public class runTimeServiceImpl implements runTimeService {
+    @Override
+    public String goAction(String ipaddr) throws IOException {
+        //安全过滤,添加一下2行esapi过滤函数的处理
+        ipaddr= charEncoding.osCmdFilterESAPI(ipaddr);
+        System.out.println(ipaddr);
+
+        String cmds = &quot;/sbin/ping -c 1 &quot; + ipaddr;  //拼接命令
+        String[] cmd = new String[]{&quot;sh&quot;,&quot;-c&quot;,cmds}; 
+
+
+        //执行命令获取返回值
+        InputStream inputStream = Runtime.getRuntime().exec(cmd).getInputStream(); //执行命令并获取结果
+        StringBuilder sb = new StringBuilder();
+        int len = 0;
+        while ((len=inputStream.read())!=-1){
+            sb.append((char)len);
+        }
+        return sb.toString();
+    }
+}
+</code></pre></div><p><strong>esapi代码</strong></p> <div class="language- extra-class"><pre class="language-text"><code>//命令执行esapi编码
+static public String osCmdFilterESAPI(String content){
+    UnixCodec unixCodec = new UnixCodec();
+    return ESAPI.encoder().encodeForOS(unixCodec,content); 
+}
+</code></pre></div><p><strong>命令语句转译过程</strong></p> <div class="language- extra-class"><pre class="language-text"><code>/sbin/ping -c 1 localhost;cat /etc/passwd
+        ||
+        \/
+\/sbin\/ping\ -c\ 1\ localhost\;cat\ \/etc\/passwd
+</code></pre></div><h2 id="三、小结"><a href="#三、小结" class="header-anchor">#</a> 三、小结</h2> <ul><li>成因：输入参数未过滤</li> <li>位置：Service层</li> <li>修复：输入过滤/ESAPI过滤<div class="language- extra-class"><pre class="language-text"><code>  static public String osCmdFilterESAPI(String content){
+      UnixCodec unixCodec = new UnixCodec();
+      return ESAPI.encoder().encodeForOS(unixCodec,content);
+  }
+</code></pre></div></li></ul></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/websec/wiki/sqlinject.html" class="prev">
+        SQL注入
+      </a></span> <span class="next"><a href="/websec/wiki/fileread.html">
+        任意文件操作
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.60959886.js" defer></script><script src="/assets/js/2.ceaaedf1.js" defer></script><script src="/assets/js/10.65b7f466.js" defer></script>
+  </body>
+</html>

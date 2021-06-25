@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>一、漏洞环境信息 | Java漏洞测试靶场</title>
+    <meta name="generator" content="VuePress 1.5.3">
+    <link rel="icon" href="/person/person.icon">
+    <meta name="description" content="风起于青萍之末,浪成于微澜之间">
+    <link rel="preload" href="/assets/css/0.styles.c340c951.css" as="style"><link rel="preload" href="/assets/js/app.60959886.js" as="script"><link rel="preload" href="/assets/js/2.ceaaedf1.js" as="script"><link rel="preload" href="/assets/js/14.d0d5ac27.js" as="script"><link rel="prefetch" href="/assets/js/10.65b7f466.js"><link rel="prefetch" href="/assets/js/11.605c66c8.js"><link rel="prefetch" href="/assets/js/12.c7a50fb4.js"><link rel="prefetch" href="/assets/js/13.218d440b.js"><link rel="prefetch" href="/assets/js/15.bf61ee57.js"><link rel="prefetch" href="/assets/js/16.b25cb04e.js"><link rel="prefetch" href="/assets/js/3.bd51e6a6.js"><link rel="prefetch" href="/assets/js/4.b8768f7d.js"><link rel="prefetch" href="/assets/js/5.81b64e54.js"><link rel="prefetch" href="/assets/js/6.acf14a9e.js"><link rel="prefetch" href="/assets/js/7.ae823adb.js"><link rel="prefetch" href="/assets/js/8.47b29133.js"><link rel="prefetch" href="/assets/js/9.12bb1385.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.c340c951.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">Java漏洞测试靶场</span></a> <div class="links"><!----> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><a href="/websec/" class="nav-link router-link-active">
+  指引
+</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><a href="/websec/" class="nav-link router-link-active">
+  指引
+</a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>关于</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/websec/about/about.html" class="sidebar-link">说明</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>操作指引</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/websec/wiki/sqlinject.html" class="sidebar-link">SQL注入</a></li><li><a href="/websec/wiki/command.html" class="sidebar-link">命令执行</a></li><li><a href="/websec/wiki/fileread.html" class="sidebar-link">任意文件操作</a></li><li><a href="/websec/wiki/fileupload.html" class="sidebar-link">文件上传</a></li><li><a href="/websec/wiki/ssrf.html" aria-current="page" class="active sidebar-link">SSRF</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/websec/wiki/ssrf.html#一、漏洞环境信息" class="sidebar-link">一、漏洞环境信息</a></li><li class="sidebar-sub-header"><a href="/websec/wiki/ssrf.html#二、修复说明" class="sidebar-link">二、修复说明</a></li><li class="sidebar-sub-header"><a href="/websec/wiki/ssrf.html#三、小结" class="sidebar-link">三、小结</a></li></ul></li><li><a href="/websec/wiki/xxe.html" class="sidebar-link">XXE</a></li><li><a href="/websec/wiki/xss.html" class="sidebar-link">XSS</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h2 id="一、漏洞环境信息"><a href="#一、漏洞环境信息" class="header-anchor">#</a> 一、漏洞环境信息</h2> <div class="language- extra-class"><pre class="language-text"><code>http://127.0.0.1:8080/ssrf/okhttp?url=http://www.baidu.com/img/baidu.svg
+</code></pre></div><h4 id="payload-http-127-0-0-1-8080-ssrf-okhttp-url-http-www-taobao-com"><a href="#payload-http-127-0-0-1-8080-ssrf-okhttp-url-http-www-taobao-com" class="header-anchor">#</a> <strong>payload</strong> <code>http://127.0.0.1:8080/ssrf/okhttp?url=http://www.taobao.com</code></h4> <p><img src="/img/okhttp_payload.jpg" alt=""></p> <h2 id="二、修复说明"><a href="#二、修复说明" class="header-anchor">#</a> 二、修复说明</h2> <p><img src="/img/okhttp_fenxi.jpg" alt=""></p> <h4 id="service层-public-string-geturl-string-url-添加修复代码分析"><a href="#service层-public-string-geturl-string-url-添加修复代码分析" class="header-anchor">#</a> <strong>service层 public String getUrl(String url) 添加修复代码分析</strong></h4> <p><strong>SSRF核心代码</strong></p> <div class="language- extra-class"><pre class="language-text"><code>
+@Service
+public class okHttpServiceImpl implements okHttpService {
+
+    private final OkHttpClient client = new OkHttpClient();
+
+    @Override
+    public String getUrl(String url) throws IOException {
+        //输入过滤
+        Boolean urlIsValid = urlCheck.isValid(url);
+
+        if (!urlIsValid){
+            return &quot;非法URL&quot;;
+        }
+
+        //发起http请求获取数据
+        Request request = new Request.Builder().url(url).build();
+
+        Response response = client.newCall(request).execute();
+        if (!response.isSuccessful()) throw new IOException(&quot;Unexpected code &quot; + response);
+
+        return response.body().string();
+    }
+}
+</code></pre></div><p><strong>SSRF-URL校验函数</strong></p> <div class="language- extra-class"><pre class="language-text"><code>/*
+* url 检测
+* */
+public class urlCheck {
+    public static Boolean isValid(String url){
+        //URL白名单列表
+        ArrayList&lt;String&gt; whiteHost = new ArrayList&lt;&gt;();
+        whiteHost.add(&quot;www.baidu.com&quot;);
+        whiteHost.add(&quot;www.qq.com&quot;);
+
+        //白名单端口号
+        int whitePort = 80;
+        URL checkUrl = null;
+        try {
+            checkUrl = new URL(url);
+            String host = checkUrl.getHost();  //域名
+            int port = checkUrl.getPort(); //端口
+
+            if (whiteHost.indexOf(host.toLowerCase()) == -1){
+                return false;
+            }
+
+            if (port==-1){  //表示没有端口号，需要通过http和https进行判断
+                if (url.toLowerCase().startsWith(&quot;https&quot;)){
+                    return false;
+                }
+            }else if (whitePort != port ){
+                return false;
+            }else{
+                return true;
+            }
+
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+            return false;
+        }
+        return true;
+    }
+}
+</code></pre></div><h2 id="三、小结"><a href="#三、小结" class="header-anchor">#</a> 三、小结</h2> <ul><li>成因：输入未校验</li> <li>位置：Service层</li> <li>修复：参数输入过滤
+<ul><li>1.限制域名白名单</li> <li>2.限制端口白名单</li> <li>.....</li></ul></li></ul></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/websec/wiki/fileupload.html" class="prev">
+        文件上传
+      </a></span> <span class="next"><a href="/websec/wiki/xxe.html">
+        XXE
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.60959886.js" defer></script><script src="/assets/js/2.ceaaedf1.js" defer></script><script src="/assets/js/14.d0d5ac27.js" defer></script>
+  </body>
+</html>

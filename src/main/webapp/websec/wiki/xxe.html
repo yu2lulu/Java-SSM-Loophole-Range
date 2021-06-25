@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>一、漏洞环境信息 | Java漏洞测试靶场</title>
+    <meta name="generator" content="VuePress 1.5.3">
+    <link rel="icon" href="/person/person.icon">
+    <meta name="description" content="风起于青萍之末,浪成于微澜之间">
+    <link rel="preload" href="/assets/css/0.styles.c340c951.css" as="style"><link rel="preload" href="/assets/js/app.60959886.js" as="script"><link rel="preload" href="/assets/js/2.ceaaedf1.js" as="script"><link rel="preload" href="/assets/js/16.b25cb04e.js" as="script"><link rel="prefetch" href="/assets/js/10.65b7f466.js"><link rel="prefetch" href="/assets/js/11.605c66c8.js"><link rel="prefetch" href="/assets/js/12.c7a50fb4.js"><link rel="prefetch" href="/assets/js/13.218d440b.js"><link rel="prefetch" href="/assets/js/14.d0d5ac27.js"><link rel="prefetch" href="/assets/js/15.bf61ee57.js"><link rel="prefetch" href="/assets/js/3.bd51e6a6.js"><link rel="prefetch" href="/assets/js/4.b8768f7d.js"><link rel="prefetch" href="/assets/js/5.81b64e54.js"><link rel="prefetch" href="/assets/js/6.acf14a9e.js"><link rel="prefetch" href="/assets/js/7.ae823adb.js"><link rel="prefetch" href="/assets/js/8.47b29133.js"><link rel="prefetch" href="/assets/js/9.12bb1385.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.c340c951.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">Java漏洞测试靶场</span></a> <div class="links"><!----> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><a href="/websec/" class="nav-link router-link-active">
+  指引
+</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><a href="/websec/" class="nav-link router-link-active">
+  指引
+</a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>关于</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/websec/about/about.html" class="sidebar-link">说明</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>操作指引</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/websec/wiki/sqlinject.html" class="sidebar-link">SQL注入</a></li><li><a href="/websec/wiki/command.html" class="sidebar-link">命令执行</a></li><li><a href="/websec/wiki/fileread.html" class="sidebar-link">任意文件操作</a></li><li><a href="/websec/wiki/fileupload.html" class="sidebar-link">文件上传</a></li><li><a href="/websec/wiki/ssrf.html" class="sidebar-link">SSRF</a></li><li><a href="/websec/wiki/xxe.html" aria-current="page" class="active sidebar-link">XXE</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/websec/wiki/xxe.html#一、漏洞环境信息" class="sidebar-link">一、漏洞环境信息</a></li><li class="sidebar-sub-header"><a href="/websec/wiki/xxe.html#二、修复说明" class="sidebar-link">二、修复说明</a></li><li class="sidebar-sub-header"><a href="/websec/wiki/xxe.html#三、小结" class="sidebar-link">三、小结</a></li></ul></li><li><a href="/websec/wiki/xss.html" class="sidebar-link">XSS</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h2 id="一、漏洞环境信息"><a href="#一、漏洞环境信息" class="header-anchor">#</a> 一、漏洞环境信息</h2> <div class="language- extra-class"><pre class="language-text"><code>dom4j: http://127.0.0.1:8080/xxe/dom4j
+jdom:  http://127.0.0.1:8080/xxe/jdom
+sax:   略
+
+</code></pre></div><h4 id="payload"><a href="#payload" class="header-anchor">#</a> **payload</h4> <p><img src="/img/xxe_payload.jpg" alt=""></p> <h2 id="二、修复说明"><a href="#二、修复说明" class="header-anchor">#</a> 二、修复说明</h2> <p><img src="/img/xxe_fenxi.jpg" alt=""></p> <h3 id="以dom4j分析-其他库同理"><a href="#以dom4j分析-其他库同理" class="header-anchor">#</a> 以dom4j分析,其他库同理</h3> <h4 id="分析controller层-public-string-dom4jaction-requestbody-string-data-添加修复代码前后分析"><a href="#分析controller层-public-string-dom4jaction-requestbody-string-data-添加修复代码前后分析" class="header-anchor">#</a> <strong>分析Controller层 public String dom4jAction(@RequestBody String data) 添加修复代码前后分析</strong></h4> <p><strong>XXE代码</strong></p> <div class="language- extra-class"><pre class="language-text"><code>
+@Controller
+@RequestMapping(&quot;/xxe&quot;)
+public class dom4jController {
+
+    @Autowired
+    private dom4jServiceImpl dom4jserviceImpl;
+
+    @ResponseBody
+    @RequestMapping(value = &quot;/dom4j&quot;,produces = {&quot;application/json;charset=utf-8&quot;})
+    public String dom4jAction(@RequestBody String data){
+        System.out.println(data);
+
+        //解析xml文件
+         SAXReader reader = new SAXReader();
+        
+        //禁止外部DTD
+        reader.setFeature(&quot;http://apache.org/xml/features/disallow-doctype-decl&quot;, true);
+        reader.setFeature(&quot;http://xml.org/sax/features/external-general-entities&quot;, false);
+        reader.setFeature(&quot;http://xml.org/sax/features/external-parameter-entities&quot;, false);
+        reader.setFeature(&quot;http://apache.org/xml/features/nonvalidating/load-external-dtd&quot;, false);
+
+        retMessage ret = new retMessage();
+        try {
+            Document document = reader.read(new InputSource(new StringReader(data)));
+            Element root=document.getRootElement();
+            String id = document.getStringValue();
+            article OneArticle = dom4jserviceImpl.getArticleById(id);
+            ret.setStatusCode(200);
+            ret.setData(OneArticle);
+            ret.setReqData(id);
+
+        } catch (DocumentException e) {
+            e.printStackTrace();
+
+            ret.setStatusCode(500);
+            ret.setData(e.getMessage());
+            ret.setReqData(data);
+        }
+        
+        return JSON.toJSONString(ret);
+    }
+}
+</code></pre></div><p><strong>XML注入原理</strong></p> <ul><li>XML跟JSON格式一样,是前后端数据交互的格式</li> <li>XML解析原理上是反序列化操作(XML格式字符串 =&gt; Object对象)</li> <li>XML反序列化过程:
+<img src="/img/xml_parse.jpg" alt=""> <ol><li>xml字符串载入XML解析器中</li> <li>解析器构造Object对象</li> <li>id -&gt; &amp;xxe;  //加载id时需要引用外部实体xxe</li> <li>&amp;xxe -&gt; file:///etc/passwd  //外部实体xxe来源于文件/etc/passwd</li> <li>id = /etc/passwd  //读取/etc/passwd文件赋值给id</li></ol></li></ul> <h2 id="三、小结"><a href="#三、小结" class="header-anchor">#</a> 三、小结</h2> <ul><li>成因：XML内容解析未设置禁止外部实体加载</li> <li>位置：xml解析的位置</li> <li>修复：设置属性禁止外部实体加载
+<ul><li>本质上XXE的问题是一个配置不当的问题</li></ul></li> <li>XXE修复指引
+<ul><li><a href="/attach/XML%E6%B3%A8%E5%85%A5%E4%BF%AE%E5%A4%8D%E6%8C%87%E5%BC%95.txt">XML注入修复指引</a></li></ul></li></ul></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/websec/wiki/ssrf.html" class="prev">
+        SSRF
+      </a></span> <span class="next"><a href="/websec/wiki/xss.html">
+        XSS
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.60959886.js" defer></script><script src="/assets/js/2.ceaaedf1.js" defer></script><script src="/assets/js/16.b25cb04e.js" defer></script>
+  </body>
+</html>
