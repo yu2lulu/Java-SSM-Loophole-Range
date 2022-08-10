@@ -6,4 +6,4 @@
 
 ## 环境无法跑起来，IDEA设置启动路径为/
 
-## 详情见：[http://yuwenqun.github.io/webssm/](http://yuwenqun.github.io/webssm/)
+## 详情见：[http://yu2lulu.github.io/webssm/](http://yuwenqun.github.io/webssm/)
